@@ -20,8 +20,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
-        let nav = UINavigationController(rootViewController: BattleVC())
-        window?.rootViewController = nav
+        
+        
+//        let pokedexData = PokedexData.shared
+//        let nav = UINavigationController(rootViewController: BattleVC(pokemon: pokedexData.pokemon[0]))
+//        window?.rootViewController = nav
+        
+        let tabBar = UITabBarController()
+        let mapsVC = MapsVC()
+        let pokedexVC = PokedexVC()
+        
+        tabBar.viewControllers = [mapsVC, pokedexVC]
+        tabBar.selectedViewController = mapsVC
+        
+        let item = UITabBarItem()
+        item.title = "Maps"
+        item.image = UIImage(named: "map-icon")
+        
+        let pokedexItem = UITabBarItem()
+        pokedexItem.title = "Pokedex"
+        pokedexItem.image = UIImage(named: "pokedex-icon")
+        
+        mapsVC.tabBarItem = item
+        pokedexVC.tabBarItem = pokedexItem
+        
+        window?.rootViewController = tabBar
+        
         return true
     }
 

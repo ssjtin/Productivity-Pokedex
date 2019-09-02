@@ -11,6 +11,7 @@ struct Pokemon {
     let name: String
     let id: Int
     let imageName: String
+    let baseHP: Int
     var captured: Bool
     let evolutionId: Int        //id of pokemon to evolve to
     let location: Location        //can be obtained from this map

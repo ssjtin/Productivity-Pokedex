@@ -19,9 +19,9 @@ class PokedexData {
     
     init() {
         
-        pokemon.append(Pokemon(name: "Bulbasaur", id: 1, imageName: "bulbasaur", captured: false, evolutionId: 2, location: .PalletTown))
-        pokemon.append(Pokemon(name: "Charmander", id: 4, imageName: "charmander", captured: false, evolutionId: 5, location: .PalletTown))
-        pokemon.append(Pokemon(name: "Caterpie", id: 10, imageName: "caterpie", captured: false, evolutionId: 11, location: .ViridianForest))
+        pokemon.append(Pokemon(name: "Bulbasaur", id: 1, imageName: "bulbasaur", baseHP: 22, captured: false, evolutionId: 2, location: .PalletTown))
+        pokemon.append(Pokemon(name: "Charmander", id: 4, imageName: "charmander", baseHP: 24, captured: false, evolutionId: 5, location: .PalletTown))
+        pokemon.append(Pokemon(name: "Caterpie", id: 10, imageName: "caterpie", baseHP: 23, captured: false, evolutionId: 11, location: .ViridianForest))
     }
     
 }

@@ -11,18 +11,21 @@ import SpriteKit
 class BattleScene: SKScene {
     
     let trainerSprite = SKSpriteNode(imageNamed: "trainer")
+    
     let pokemonSprite: SKSpriteNode
     
-    let battleLayer = SKNode()
+    var healthBar: HealthBar!
     
-    init(pokemonName: String, size: CGSize) {
-        
-        self.pokemonSprite = SKSpriteNode(imageNamed: pokemonName)
+    let battleLayer = SKNode()          // Main layer of scene
+    
+    init(pokemon: Pokemon, size: CGSize) {
+        //Initialize scene with pokemon sprite and set max HP
+        self.pokemonSprite = SKSpriteNode(imageNamed: pokemon.imageName)
         super.init(size: size)
         
         anchorPoint = CGPoint(x: 0.5, y: 0.5)
         scaleMode = .aspectFill
-        
+    
         addChild(battleLayer)
         
         let background = SKSpriteNode(imageNamed: "background")
@@ -37,6 +40,10 @@ class BattleScene: SKScene {
         trainerSprite.setScale(1.75)
         trainerSprite.position = CGPoint(x: -80, y: -150)
         battleLayer.addChild(trainerSprite)
+        
+        healthBar = HealthBar(size: CGSize(width: 250, height: 20))
+        healthBar.position = CGPoint(x: -25, y: 100)
+        battleLayer.addChild(healthBar)
     }
     
     required init?(coder aDecoder: NSCoder) {
