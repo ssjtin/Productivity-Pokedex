@@ -69,5 +69,4 @@ class TaskConstructor {
         return randomCategory.randomTask(with: .Easy)
     }
     
-    
 }

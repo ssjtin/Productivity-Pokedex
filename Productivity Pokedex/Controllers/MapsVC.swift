@@ -28,7 +28,7 @@ class MapsVC: UIViewController {
         layout.itemSize = CGSize(width: view.frame.width - 20, height: 150)
         
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        collectionView.register(MapCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         collectionView.backgroundColor = UIColor.white
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -45,14 +45,23 @@ extension MapsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)as! MapCell
         
+        cell.backgroundImageView.image = UIImage(named: "viridian-forest")
+        cell.nameLabel.text = "VIRIDIAN FOREST"
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        // Route to battle
+        
+        let pokedexData = PokedexData.shared
+        
+        if let randomPokemon = pokedexData.randomPokemon(at: .ViridianForest) {
+            let battleVC = BattleVC(pokemon: randomPokemon)
+            self.present(battleVC, animated: true, completion: nil)
+        }
         
     }
     

@@ -67,7 +67,6 @@
 				8E31FBF1231C996100E80F52 /* AttackCell.swift */,
 				8E31FBFF231D308400E80F52 /* MapCell.swift */,
 				8E31FBF7231D057300E80F52 /* HealthBar.swift */,
-				8E31FBF9231D06AA00E80F52 /* SKSpriteNode_Extension.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -90,6 +89,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8E31FC01231DC47A00E80F52 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				8E31FBF9231D06AA00E80F52 /* SKSpriteNode_Extension.swift */,
+				8E2C790C231BABBB00720288 /* Layout+Extensions .swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		8E31FC02231DC49F00E80F52 /* Data Services */ = {
+			isa = PBXGroup;
+			children = (
+				8E2C7913231BB89C00720288 /* PokedexData.swift */,
+				8E31FBF5231CFAFD00E80F52 /* TaskData.swift */,
+			);
+			path = "Data Services";
+			sourceTree = "<group>";
+		};
+		8E31FC03231DC4B500E80F52 /* Constructors */ = {
+			isa = PBXGroup;
+			children = (
+				8E31FBF3231CA1A200E80F52 /* TaskConstructor.swift */,
+			);
+			path = Constructors;
+			sourceTree = "<group>";
+		};
 		8E98B6F1231B9DAE0061B13A = {
 			isa = PBXGroup;
 			children = (
@@ -110,13 +135,12 @@
 			isa = PBXGroup;
 			children = (
 				8E98B6FD231B9DAF0061B13A /* AppDelegate.swift */,
-				8E2C7913231BB89C00720288 /* PokedexData.swift */,
-				8E31FBF5231CFAFD00E80F52 /* TaskData.swift */,
-				8E31FBF3231CA1A200E80F52 /* TaskConstructor.swift */,
 				8E2C7912231BB35200720288 /* Models */,
-				8E2C790F231BB2F700720288 /* Controllers */,
 				8E2C790E231BB2DF00720288 /* Views */,
-				8E2C790C231BABBB00720288 /* Layout+Extensions .swift */,
+				8E2C790F231BB2F700720288 /* Controllers */,
+				8E31FC02231DC49F00E80F52 /* Data Services */,
+				8E31FC03231DC4B500E80F52 /* Constructors */,
+				8E31FC01231DC47A00E80F52 /* Helpers */,
 				8E98B707231B9DB20061B13A /* Assets.xcassets */,
 				8E98B70C231B9DB30061B13A /* Info.plist */,
 				8E98B704231B9DAF0061B13A /* Productivity_Pokedex.xcdatamodeld */,
