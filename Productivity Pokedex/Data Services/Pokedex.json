@@ -1,0 +1,62 @@
+{
+    "4" : {
+        "id": 4,
+        "name": "charmander",
+        "imageName": "charmander",
+        "evolutionId": 5,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 22
+    },
+    
+    "10" : {
+        "id": 10,
+        "name": "caterpie",
+        "imageName": "caterpie",
+        "evolutionId": 11,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 16
+    },
+    
+    "13" : {
+        "id": 13,
+        "name": "weedle",
+        "imageName": "weedle",
+        "evolutionId": 14,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 19
+    },
+    
+    "16" : {
+        "id": 16,
+        "name": "pidgey",
+        "imageName": "pidgey",
+        "evolutionId": 17,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 21
+    },
+    
+    "19" : {
+        "id": 19,
+        "name": "rattata",
+        "imageName": "rattata",
+        "evolutionId": 20,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 17
+    },
+    
+    "25" : {
+        "id": 25,
+        "name": "pikachu",
+        "imageName": "pikachu",
+        "evolutionId": 26,
+        "location": "Viridian Forest",
+        "captured": false,
+        "baseHP": 17
+    }
+    
+}

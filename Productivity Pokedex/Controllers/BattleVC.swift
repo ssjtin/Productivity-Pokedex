@@ -110,15 +110,13 @@ extension BattleVC: UITableViewDelegate, UITableViewDataSource {
         let remainingHealth = Float(pokemonHP) / Float(pokemon.baseHP)
         
         battleScene.healthBar.animateTo(percentage: remainingHealth) { [unowned self] in
-            if !(self.pokemonHP > 0) {
-                //Pokemon defeated
-                print("Should capture pokemon and return to main menu")
-                
+            if !(self.pokemonHP > 0) {      //Pokemon defeated and captured
+                //Update pokedex data to set pokemon as caught
                 let pokedexData = PokedexData.shared
+                pokedexData.didCatchPokemon(withId: self.pokemon.id)
                 
-                let index = pokedexData.pokemon.firstIndex(of: self.pokemon)
+                self.dismiss(animated: true, completion: nil)
                 
-                pokedexData.pokemon[index!].captured = true
             } else {
                 //Replace attack
                 let newAttack = self.taskConstructor.randomAttack()
@@ -127,6 +125,5 @@ extension BattleVC: UITableViewDelegate, UITableViewDataSource {
             }
         }
     }
-    
     
 }

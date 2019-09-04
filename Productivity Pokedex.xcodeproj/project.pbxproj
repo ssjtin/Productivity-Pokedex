@@ -20,6 +20,8 @@
 		8E31FBFA231D06AA00E80F52 /* SKSpriteNode_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E31FBF9231D06AA00E80F52 /* SKSpriteNode_Extension.swift */; };
 		8E31FBFE231D2B4500E80F52 /* MapsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E31FBFD231D2B4500E80F52 /* MapsVC.swift */; };
 		8E31FC00231D308400E80F52 /* MapCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E31FBFF231D308400E80F52 /* MapCell.swift */; };
+		8E57F9F7231F1F70000245AB /* BattleDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E57F9F6231F1F70000245AB /* BattleDelegate.swift */; };
+		8E57F9FA231FB188000245AB /* Pokedex.json in Resources */ = {isa = PBXBuildFile; fileRef = 8E57F9F9231FB188000245AB /* Pokedex.json */; };
 		8E98B6FE231B9DAF0061B13A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98B6FD231B9DAF0061B13A /* AppDelegate.swift */; };
 		8E98B700231B9DAF0061B13A /* PokedexVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E98B6FF231B9DAF0061B13A /* PokedexVC.swift */; };
 		8E98B706231B9DAF0061B13A /* Productivity_Pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8E98B704231B9DAF0061B13A /* Productivity_Pokedex.xcdatamodeld */; };
@@ -40,6 +42,8 @@
 		8E31FBF9231D06AA00E80F52 /* SKSpriteNode_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKSpriteNode_Extension.swift; sourceTree = "<group>"; };
 		8E31FBFD231D2B4500E80F52 /* MapsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsVC.swift; sourceTree = "<group>"; };
 		8E31FBFF231D308400E80F52 /* MapCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCell.swift; sourceTree = "<group>"; };
+		8E57F9F6231F1F70000245AB /* BattleDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattleDelegate.swift; sourceTree = "<group>"; };
+		8E57F9F9231FB188000245AB /* Pokedex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Pokedex.json; sourceTree = "<group>"; };
 		8E98B6FA231B9DAF0061B13A /* Productivity Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Productivity Pokedex.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E98B6FD231B9DAF0061B13A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E98B6FF231B9DAF0061B13A /* PokedexVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexVC.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				8E2C7913231BB89C00720288 /* PokedexData.swift */,
+				8E57F9F9231FB188000245AB /* Pokedex.json */,
 				8E31FBF5231CFAFD00E80F52 /* TaskData.swift */,
 			);
 			path = "Data Services";
@@ -113,6 +118,14 @@
 				8E31FBF3231CA1A200E80F52 /* TaskConstructor.swift */,
 			);
 			path = Constructors;
+			sourceTree = "<group>";
+		};
+		8E57F9F8231F1F83000245AB /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				8E57F9F6231F1F70000245AB /* BattleDelegate.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		8E98B6F1231B9DAE0061B13A = {
@@ -138,6 +151,7 @@
 				8E2C7912231BB35200720288 /* Models */,
 				8E2C790E231BB2DF00720288 /* Views */,
 				8E2C790F231BB2F700720288 /* Controllers */,
+				8E57F9F8231F1F83000245AB /* Protocols */,
 				8E31FC02231DC49F00E80F52 /* Data Services */,
 				8E31FC03231DC4B500E80F52 /* Constructors */,
 				8E31FC01231DC47A00E80F52 /* Helpers */,
@@ -207,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E98B708231B9DB20061B13A /* Assets.xcassets in Resources */,
+				8E57F9FA231FB188000245AB /* Pokedex.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,6 +248,7 @@
 				8E2C7916231BC02E00720288 /* BattleVC.swift in Sources */,
 				8E2C7911231BB34500720288 /* Pokemon.swift in Sources */,
 				8E31FBF2231C996100E80F52 /* AttackCell.swift in Sources */,
+				8E57F9F7231F1F70000245AB /* BattleDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

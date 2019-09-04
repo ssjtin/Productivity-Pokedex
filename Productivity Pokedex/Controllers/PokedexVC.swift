@@ -14,13 +14,18 @@ class PokedexVC: UIViewController {
     
     var collectionView: UICollectionView!
 
-    var data = PokedexData().pokemon.sorted { $0 < $1 }
+    var data = PokedexData().pokemonDictionary.values.sorted { $0 < $1 }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupViews()
         setupNavBar()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        data = PokedexData().pokemonDictionary.values.sorted { $0 < $1 }
+        collectionView.reloadData()
     }
     
     private func setupViews() {
