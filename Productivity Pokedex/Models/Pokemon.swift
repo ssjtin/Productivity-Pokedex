@@ -56,6 +56,7 @@ struct Pokemon: Codable {
         let baseHP: Int = try container.decode(Int.self, forKey: .baseHP)
         let captured: Bool = try container.decode(Bool.self, forKey: .captured)
         let evolutionId: Int = try container.decode(Int.self, forKey: .evolutionId)
+        //TODO: Switch on location
         let location: Location = .ViridianForest
         
         self.init(name: name, id: id, imageName: imageName, baseHP: baseHP, captured: captured, evolutionId: evolutionId, location: location)

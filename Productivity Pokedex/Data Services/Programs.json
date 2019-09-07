@@ -1,0 +1,62 @@
+[
+    {
+        "title": "Beginner Meditation",
+        "tasks":
+        [
+            {
+                "description": "Focus on breath for 1 minute",
+                "value": 60,
+                "type": "Timed"
+            },
+            
+            {
+                "description": "Focus on breath for 2 minutes",
+                "value": 120,
+                "type": "Timed"
+            },
+            
+            {
+                "description": "Focus on breath for 2 minute",
+                "value": 120,
+                "type": "Timed"
+            },
+            
+            {
+                "description": "Focus on breath for 2 minute",
+                "value": 120,
+                "type": "Timed"
+            },
+            
+        ],
+        "selected": false,
+        "completionCount" : 0
+    },
+    
+    {
+        "title": "Read - Non-fiction",
+        "tasks":
+        [
+            {
+                "description": "Distraction free reading for 10 minutes",
+                "value": 600,
+                "type": "Timed"
+            },
+            
+            {
+                "description": "Distraction free reading for 15 minutes",
+                "value": 900,
+                "type": "Timed"
+            },
+            
+            {
+                "description": "Focus on breath for 2 minute",
+                "value": 120,
+                "type": "Timed"
+            }
+            
+        ],
+        "selected": false,
+        "completionCount" : 0
+    }
+    
+]

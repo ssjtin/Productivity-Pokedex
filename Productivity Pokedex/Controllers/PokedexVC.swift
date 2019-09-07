@@ -10,11 +10,10 @@ import UIKit
 
 class PokedexVC: UIViewController {
     
-    let reuseIdentifier = "cell"
-    
+    let reuseIdentifier = "cell"                //Collection view cell ID
     var collectionView: UICollectionView!
 
-    var data = PokedexData().pokemonDictionary.values.sorted { $0 < $1 }
+    var data = PokedexData().pokemonDictionary.values.sorted { $0 < $1 }    //Array of pokemon sorted by id
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +23,15 @@ class PokedexVC: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        //  Refresh data every time view appears
+        //  Potential swich to reactive pattern
         data = PokedexData().pokemonDictionary.values.sorted { $0 < $1 }
         collectionView.reloadData()
     }
     
     private func setupViews() {
         view.backgroundColor = UIColor.white
-        
+        //  Collection view setup
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         layout.itemSize = CGSize(width: 100, height: 100)

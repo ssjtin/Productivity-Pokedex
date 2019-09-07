@@ -45,7 +45,7 @@ extension MapsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollec
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)as! MapCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MapCell
         
         cell.backgroundImageView.image = UIImage(named: "viridian-forest")
         cell.nameLabel.text = "VIRIDIAN FOREST"

@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 
+typealias Attack = (task: Task, attackPower: Int)
+
 class BattleVC: UIViewController {
     
     var tableView: UITableView!         //  Attack/tasks list
@@ -18,7 +20,7 @@ class BattleVC: UIViewController {
     let pokemon: Pokemon
     var pokemonHP: Int
     
-    var attackList = [(task: Task, attackPower: Int)]()
+    var attackList = [Attack]()
     
     let skView = SKView(frame: .zero)
     var battleScene: BattleScene!
@@ -77,7 +79,44 @@ class BattleVC: UIViewController {
         tableView.dataSource = self
         view.addSubview(tableView)
     }
-
+    
+    fileprivate func presentCompleteAttackAlert(for taskName: String, at index: Int) {
+        let alert = UIAlertController(title: taskName, message: "Set task as completed?", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Complete", style: .default) { (_) in
+            self.completeTask(at: index)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        alert.addAction(confirmAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func completeTask(at index: Int) {
+        let attackPower = attackList[index].attackPower
+        
+        pokemonHP = (pokemonHP <= attackPower) ? 0 : (pokemonHP - attackPower)
+        
+        let remainingHealth = Float(pokemonHP) / Float(pokemon.baseHP)
+        
+        battleScene.healthBar.animateTo(percentage: remainingHealth) { [unowned self] in
+            if !(self.pokemonHP > 0) {      //Pokemon defeated and captured
+                //Update pokedex data to set pokemon as caught
+                let pokedexData = PokedexData.shared
+                pokedexData.didCatchPokemon(withId: self.pokemon.id)
+                
+                self.dismiss(animated: true, completion: nil)
+                
+            } else {
+                //Replace attack
+                let newAttack = self.taskConstructor.randomAttack()
+                self.attackList[index] = (newAttack, 6)
+                self.tableView.reloadData()
+            }
+        }
+        
+    }
+    
 }
 
 extension BattleVC: UITableViewDelegate, UITableViewDataSource {
@@ -101,29 +140,9 @@ extension BattleVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         tableView.deselectRow(at: indexPath, animated: false)
-        
-        let attackPower = attackList[indexPath.row].attackPower
-        
-        pokemonHP = (pokemonHP <= attackPower) ? 0 : (pokemonHP - attackPower)
-        
-        let remainingHealth = Float(pokemonHP) / Float(pokemon.baseHP)
-        
-        battleScene.healthBar.animateTo(percentage: remainingHealth) { [unowned self] in
-            if !(self.pokemonHP > 0) {      //Pokemon defeated and captured
-                //Update pokedex data to set pokemon as caught
-                let pokedexData = PokedexData.shared
-                pokedexData.didCatchPokemon(withId: self.pokemon.id)
-                
-                self.dismiss(animated: true, completion: nil)
-                
-            } else {
-                //Replace attack
-                let newAttack = self.taskConstructor.randomAttack()
-                self.attackList[indexPath.row] = (newAttack, 6)
-                self.tableView.reloadData()
-            }
-        }
+        presentCompleteAttackAlert(for: attackList[indexPath.row].task.description, at: indexPath.row)
     }
     
 }

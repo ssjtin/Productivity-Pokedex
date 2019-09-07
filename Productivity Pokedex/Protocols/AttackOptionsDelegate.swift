@@ -6,4 +6,8 @@
 //  Copyright © 2019 Hoang Luong. All rights reserved.
 //
 
-import Foundation
+protocol AttackOptionsDelegate {
+    
+    
+    
+}

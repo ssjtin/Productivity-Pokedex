@@ -8,15 +8,10 @@
 
 import Foundation
 
-enum Location: String {
-    case PalletTown = "Pallet Town"
-    case ViridianForest = "Viridian Forest"
-}
-
 class PokedexData {
     
     static let shared = PokedexData()
-    
+    //  Path to pokedex data in  user .documentDirectory
     let path = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("Pokedex.json")
     
     var pokemonDictionary = [Int: Pokemon]()
@@ -27,15 +22,6 @@ class PokedexData {
     }
     
     private func loadDataFromJSON() {
-        
-        //  read from Bundle json
-//        let url = Bundle.main.url(forResource: "Pokedex", withExtension: "json")!
-//        if let data = try? Data(contentsOf: url) {
-//            if let pokemonDictionary = try? JSONDecoder().decode([Int: Pokemon].self, from: data) {
-//                self.pokemonDictionary = pokemonDictionary
-//                print(pokemonDictionary)
-//            }
-//        }
   
         if let data = try? Data(contentsOf: path) {
             //Initial json data has been copied to .documentsDirectory
@@ -48,7 +34,6 @@ class PokedexData {
 
                 decode(data: data)
             }
-
         }
         
     }
@@ -62,21 +47,18 @@ class PokedexData {
     func randomPokemon(at location: Location) -> Pokemon? {
         
         //Filter pokedex by uncaught pokemon available at location
-        
         let possiblePokemon = pokemonDictionary.values.filter { $0.captured == false && $0.location == location }
         
         guard !possiblePokemon.isEmpty else {
             print("no pokemon available at this location")
             return nil
         }
-        
         return possiblePokemon.randomElement()
     }
     
     func didCatchPokemon(withId id: Int) {
 
         //  Update pokemonDictionary entry to captured
-        
         pokemonDictionary[id]?.captured = true
 
         do {
