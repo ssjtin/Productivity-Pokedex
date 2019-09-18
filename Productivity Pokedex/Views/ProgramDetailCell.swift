@@ -15,26 +15,31 @@ class ProgramDetailCell: UITableViewCell {
         return label
     }()
     
-    let selectToggle: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(named: "unchecked"), for: .normal)
-        return button
+    let selectionStatusImage: UIImageView = {
+        let iv = UIImageView()
+        return iv
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubviewUsingAutoLayout(titleLabel, selectToggle)
+        addSubviewUsingAutoLayout(titleLabel, selectionStatusImage)
         
         titleLabel.topAnchor.constrain(to: self.topAnchor)
         titleLabel.leadingAnchor.constrain(to: self.leadingAnchor, with: 20)
         titleLabel.bottomAnchor.constrain(to: self.bottomAnchor)
-        titleLabel.trailingAnchor.constrain(to: selectToggle.leadingAnchor)
+        titleLabel.trailingAnchor.constrain(to: selectionStatusImage.leadingAnchor)
         
-        selectToggle.trailingAnchor.constrain(to: self.trailingAnchor)
-        selectToggle.centerYAnchor.constrain(to: self.centerYAnchor)
-        selectToggle.widthAnchor.constrain(to: 40)
-        selectToggle.heightAnchor.constrain(to: 40)
+        selectionStatusImage.trailingAnchor.constrain(to: self.trailingAnchor)
+        selectionStatusImage.centerYAnchor.constrain(to: self.centerYAnchor)
+        selectionStatusImage.widthAnchor.constrain(to: 40)
+        selectionStatusImage.heightAnchor.constrain(to: 40)
+    }
+    
+    func render(for program: Program) {
+        titleLabel.text = program.title
+        selectionStatusImage.image = program.selected ? UIImage(named: "checked") : UIImage(named: "unchecked")
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
