@@ -8,9 +8,14 @@
 
 import UIKit
 
+protocol ProgramSelectionDelegate: AnyObject {
+    func toggleSelectionStatus(for program: Program)
+}
+
 class ProgramPopupVC: UIViewController {
     
     var program: Program
+    weak var selectionDelegate: ProgramSelectionDelegate?
     
     let backgroundBlurView: UIVisualEffectView = {
         let blurEffect = UIBlurEffect(style: .extraLight)
@@ -30,6 +35,7 @@ class ProgramPopupVC: UIViewController {
     
     let textView: UITextView = {
         let tv = UITextView()
+        tv.isUserInteractionEnabled = false
         return tv
     }()
     
@@ -93,11 +99,18 @@ class ProgramPopupVC: UIViewController {
         selectButton.widthAnchor.constrain(to: 150)
         selectButton.layer.cornerRadius = 15
         selectButton.layer.masksToBounds = true
+        selectButton.addTarget(self, action: #selector(selectButtonPressed), for: .touchUpInside)
     }
     
     private func renderContent() {
         textView.text = program.tasks.map { $0.description }.joined(separator: " \n")
-        selectButton.setTitle("Select Program", for: .normal)
+        let selectButtonTitle = program.selected ? "Unselect program" : "Select program"
+        selectButton.setTitle(selectButtonTitle, for: .normal)
+    }
+    
+    @objc private func selectButtonPressed() {
+        selectionDelegate?.toggleSelectionStatus(for: program)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func dismissSelf() {

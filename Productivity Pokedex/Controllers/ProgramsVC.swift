@@ -13,7 +13,7 @@ class ProgramsVC: UIViewController {
     var programsTableView: UITableView!
     let identifier = "cellID"
     
-    let programs = ProgramsData.shared.programs
+    var programs = ProgramsData.shared.programs
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,9 +34,19 @@ class ProgramsVC: UIViewController {
         let programPopup = ProgramPopupVC(program: programs[index])
         programPopup.modalTransitionStyle = .crossDissolve
         programPopup.modalPresentationStyle = .overCurrentContext
+        programPopup.selectionDelegate = self
         self.present(programPopup, animated: true, completion: nil)
     }
     
+}
+
+extension ProgramsVC: ProgramSelectionDelegate {
+    func toggleSelectionStatus(for program: Program) {
+        if let selectedIndex = programs.firstIndex(of: program) {
+            programs[selectedIndex].selected = !programs[selectedIndex].selected
+            programsTableView.reloadData()
+        }
+    }
 }
 
 extension ProgramsVC: UITableViewDelegate, UITableViewDataSource {
@@ -48,7 +58,7 @@ extension ProgramsVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! ProgramDetailCell
         
-        cell.titleLabel.text = programs[indexPath.row].title
+        cell.render(for: programs[indexPath.row])
         
         return cell
     }
