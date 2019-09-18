@@ -45,7 +45,11 @@ class MapCell: UICollectionViewCell {
         nameLabel.centerYAnchor.constrain(to: self.centerYAnchor)
         nameLabel.heightAnchor.constrain(to: 30)
         nameLabel.widthAnchor.constrain(to: 200)
-        
+    }
+    
+    func renderCell(for location: Location) {
+        backgroundImageView.image = UIImage(named: location.imageName)
+        nameLabel.text = location.nameString
     }
     
     required init?(coder aDecoder: NSCoder) {
