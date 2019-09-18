@@ -8,10 +8,6 @@
 
 import UIKit
 
-protocol ProgramSelectionDelegate: AnyObject {
-    func toggleSelectionStatus(for program: Program)
-}
-
 class ProgramPopupVC: UIViewController {
     
     var program: Program
