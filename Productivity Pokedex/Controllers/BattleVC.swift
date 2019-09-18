@@ -9,8 +9,6 @@
 import UIKit
 import SpriteKit
 
-typealias Attack = (task: Task, attackPower: Int)
-
 class BattleVC: UIViewController {
     
     var tableView: UITableView!         //  Attack/tasks list
@@ -20,7 +18,7 @@ class BattleVC: UIViewController {
     let pokemon: Pokemon
     var pokemonHP: Int
     
-    var attackList = [Attack]()
+    var attackList = [Task]()
     
     let skView = SKView(frame: .zero)
     var battleScene: BattleScene!
@@ -42,12 +40,8 @@ class BattleVC: UIViewController {
         view.backgroundColor = .white
         
         //Temporary setup of dummy task list
-        let tasks = taskConstructor.createAttackList(difficulty: .Easy)
-        
-        for task in tasks {
-            attackList.append((task, 6))
-        }
-        
+        attackList = taskConstructor.createAttackList(difficulty: .Easy)
+    
         setupBattleScene()
         
         setupTaskPanel()
@@ -109,8 +103,7 @@ class BattleVC: UIViewController {
                 
             } else {
                 //Replace attack
-                let newAttack = self.taskConstructor.randomAttack()
-                self.attackList[index] = (newAttack, 6)
+                self.attackList[index] = self.taskConstructor.randomAttack()
                 self.tableView.reloadData()
             }
         }
@@ -129,7 +122,7 @@ extension BattleVC: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as! AttackCell
         let attack = attackList[indexPath.row]
         
-        cell.attackLabel.text = attack.task.description
+        cell.attackLabel.text = attack.description
         cell.damageLabel.text = "\(attack.attackPower) HP"
         
         return cell
@@ -142,7 +135,7 @@ extension BattleVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
-        presentCompleteAttackAlert(for: attackList[indexPath.row].task.description, at: indexPath.row)
+        presentCompleteAttackAlert(for: attackList[indexPath.row].description, at: indexPath.row)
     }
     
 }

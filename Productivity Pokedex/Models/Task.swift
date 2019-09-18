@@ -12,17 +12,20 @@ struct Task: Codable {
     let description: String
     let value: Int
     let type: TaskType
+    let attackPower: Int
     
     enum ItemKeys: String, CodingKey {
         case description = "description"
         case value = "value"
         case type = "type"
+        case attackPower = "attackPower"
     }
     
-    init(description: String, value: Int, type: TaskType) {
+    init(description: String, value: Int, type: TaskType, attackPower: Int) {
         self.description = description
         self.value = value
         self.type = type
+        self.attackPower = attackPower
     }
     
     func encode(to encoder: Encoder) throws {
@@ -30,6 +33,7 @@ struct Task: Codable {
         try container.encode(description, forKey: .description)
         try container.encode(value, forKey: .value)
         try container.encode(type.rawValue, forKey: .type)
+        try container.encode(attackPower, forKey: .attackPower)
     }
     
     init(from decoder: Decoder) throws {
@@ -38,7 +42,8 @@ struct Task: Codable {
         let value: Int = try container.decode(Int.self, forKey: .value)
         let typeRawValue: String = try container.decode(String.self, forKey: .type)
         let type: TaskType = TaskType(rawValue: typeRawValue)!
+        let attackPower: Int = try container.decode(Int.self, forKey: .attackPower)
         
-        self.init(description: description, value: value, type: type)
+        self.init(description: description, value: value, type: type, attackPower: attackPower)
     }
 }
