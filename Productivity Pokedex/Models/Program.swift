@@ -50,9 +50,15 @@ struct Program: Codable {
         self.init(title: title, tasks: tasks, selected: selected, completionCount: completionCount)
     }
     
-    
     func randomTask() -> Task {
         guard let randomTask = tasks.randomElement() else { fatalError() }
         return randomTask
+    }
+}
+
+//MARK - Review, currently equating programs by simply comparing their titles
+extension Program: Equatable {
+    static func ==(lhs: Program, rhs: Program) -> Bool {
+        return lhs.title == rhs.title
     }
 }
