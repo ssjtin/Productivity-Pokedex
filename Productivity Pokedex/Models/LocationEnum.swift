@@ -7,7 +7,26 @@
 //
 //  enumeration for map areas
 
-enum Location: String {
-    case PalletTown = "Pallet Town"
-    case ViridianForest = "Viridian Forest"
+enum Location: Int {
+    
+    case unknown = 0, PalletTown, ViridianForest
+    
+    var imageName: String {
+        let imageNames = [
+            "unown-location",
+            "pallet-town",
+            "viridian-forest"
+        ]
+        return imageNames[rawValue]
+    }
+    
+    var nameString: String {
+        let cityNames = [
+            "Map coming soon",
+            "Pallet Town",
+            "Viridian Forest"
+        ]
+        return cityNames[rawValue]
+    }
+    
 }

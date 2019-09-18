@@ -12,6 +12,8 @@ class MapsVC: UIViewController {
     
     let reuseIdentifier = "cell"
     
+    let maps: [Location] = [.PalletTown, .ViridianForest, .unknown, .unknown, .unknown]
+    
     var collectionView: UICollectionView!
     
     override func viewDidLoad() {
@@ -41,14 +43,13 @@ class MapsVC: UIViewController {
 extension MapsVC: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return maps.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MapCell
         
-        cell.backgroundImageView.image = UIImage(named: "viridian-forest")
-        cell.nameLabel.text = "VIRIDIAN FOREST"
+        cell.renderCell(for: maps[indexPath.row])
         
         return cell
     }
