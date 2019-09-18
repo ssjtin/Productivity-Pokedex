@@ -29,6 +29,13 @@ class ProgramsVC: UIViewController {
         view.addSubviewUsingAutoLayout(programsTableView)
     }
     
+    private func presentPopupForProgram(at index: Int) {
+        
+        let programPopup = ProgramPopupVC(program: programs[index])
+        programPopup.modalTransitionStyle = .crossDissolve
+        programPopup.modalPresentationStyle = .overCurrentContext
+        self.present(programPopup, animated: true, completion: nil)
+    }
     
 }
 
@@ -48,6 +55,10 @@ extension ProgramsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presentPopupForProgram(at: indexPath.row)
     }
     
 }

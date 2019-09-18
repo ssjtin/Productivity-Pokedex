@@ -27,7 +27,7 @@
 		8E98B708231B9DB20061B13A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E98B707231B9DB20061B13A /* Assets.xcassets */; };
 		8EBAF2C523245064002D72EE /* ProgramsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAF2C423245064002D72EE /* ProgramsVC.swift */; };
 		8EBAF2C723245A2D002D72EE /* ProgramDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAF2C623245A2D002D72EE /* ProgramDetailCell.swift */; };
-		8EF0470B23206CA3009F5A65 /* AttackOptionsPopoverVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0470A23206CA3009F5A65 /* AttackOptionsPopoverVC.swift */; };
+		8EBAF2C923250CF7002D72EE /* ProgramPopupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EBAF2C823250CF7002D72EE /* ProgramPopupVC.swift */; };
 		8EF0470D23213A0E009F5A65 /* LocationEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0470C23213A0E009F5A65 /* LocationEnum.swift */; };
 		8EF0470F23213A85009F5A65 /* TaskTypeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0470E23213A85009F5A65 /* TaskTypeEnum.swift */; };
 		8EF0471123213ABF009F5A65 /* TaskLevelEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EF0471023213ABF009F5A65 /* TaskLevelEnum.swift */; };
@@ -59,7 +59,7 @@
 		8E98B70C231B9DB30061B13A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8EBAF2C423245064002D72EE /* ProgramsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramsVC.swift; sourceTree = "<group>"; };
 		8EBAF2C623245A2D002D72EE /* ProgramDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramDetailCell.swift; sourceTree = "<group>"; };
-		8EF0470A23206CA3009F5A65 /* AttackOptionsPopoverVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackOptionsPopoverVC.swift; sourceTree = "<group>"; };
+		8EBAF2C823250CF7002D72EE /* ProgramPopupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgramPopupVC.swift; sourceTree = "<group>"; };
 		8EF0470C23213A0E009F5A65 /* LocationEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationEnum.swift; sourceTree = "<group>"; };
 		8EF0470E23213A85009F5A65 /* TaskTypeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTypeEnum.swift; sourceTree = "<group>"; };
 		8EF0471023213ABF009F5A65 /* TaskLevelEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskLevelEnum.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				8E31FBFD231D2B4500E80F52 /* MapsVC.swift */,
 				8E2C7915231BC02E00720288 /* BattleVC.swift */,
 				8EBAF2C423245064002D72EE /* ProgramsVC.swift */,
-				8EF0470A23206CA3009F5A65 /* AttackOptionsPopoverVC.swift */,
+				8EBAF2C823250CF7002D72EE /* ProgramPopupVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -277,10 +277,10 @@
 				8E2C7909231BA7BC00720288 /* PokedexCell.swift in Sources */,
 				8E2C791C231BC4F000720288 /* BattleScene.swift in Sources */,
 				8E2C7916231BC02E00720288 /* BattleVC.swift in Sources */,
+				8EBAF2C923250CF7002D72EE /* ProgramPopupVC.swift in Sources */,
 				8E2C7911231BB34500720288 /* Pokemon.swift in Sources */,
 				8E31FBF2231C996100E80F52 /* AttackCell.swift in Sources */,
 				8E57F9F7231F1F70000245AB /* AttackOptionsDelegate.swift in Sources */,
-				8EF0470B23206CA3009F5A65 /* AttackOptionsPopoverVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
