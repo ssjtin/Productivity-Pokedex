@@ -22,8 +22,7 @@ class TaskConstructor {
     }
     
     func randomAttack() -> Task {
-        let randomCategory = taskData.programs.randomElement()!
-        return randomCategory.randomTask()
+        return taskData.programs.randomElement()!.tasks.randomElement()!
     }
     
 }

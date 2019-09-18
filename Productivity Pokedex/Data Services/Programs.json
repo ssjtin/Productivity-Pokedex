@@ -6,27 +6,21 @@
             {
                 "description": "Focus on breath for 1 minute",
                 "value": 60,
-                "type": "Timed"
+                "type": "Timed",
+                "attackPower": 4
             },
-            
             {
                 "description": "Focus on breath for 2 minutes",
                 "value": 120,
-                "type": "Timed"
+                "type": "Timed",
+                "attackPower": 5
             },
-            
             {
-                "description": "Focus on breath for 2 minute",
-                "value": 120,
-                "type": "Timed"
-            },
-            
-            {
-                "description": "Focus on breath for 2 minute",
-                "value": 120,
-                "type": "Timed"
-            },
-            
+                "description": "Focus on breath for 3 minute",
+                "value": 180,
+                "type": "Timed",
+                "attackPower": 6
+            }
         ],
         "selected": false,
         "completionCount" : 0
@@ -39,19 +33,22 @@
             {
                 "description": "Distraction free reading for 10 minutes",
                 "value": 600,
-                "type": "Timed"
+                "type": "Timed",
+                "attackPower": 5
             },
             
             {
                 "description": "Distraction free reading for 15 minutes",
                 "value": 900,
-                "type": "Timed"
+                "type": "Timed",
+                "attackPower": 6
             },
             
             {
-                "description": "Focus on breath for 2 minute",
-                "value": 120,
-                "type": "Timed"
+                "description": "Choose a short passage to read and reflect on",
+                "value": 1,
+                "type": "Count",
+                "attackPower": 7
             }
             
         ],
