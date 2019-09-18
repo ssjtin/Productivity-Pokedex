@@ -14,15 +14,17 @@ class TaskConstructor {
         var tasks = [Task]()
         
         while tasks.count < 4 {
-            guard let category = taskData.programs.randomElement() else { fatalError("No categories to construct tasks") }
-            tasks.append(category.randomTask())
+            tasks.append(randomAttack())
         }
         
         return tasks
     }
     
     func randomAttack() -> Task {
-        return taskData.programs.randomElement()!.tasks.randomElement()!
+        guard let program = taskData.programs.randomElement() else {
+            fatalError()
+        }
+        return program.randomTask()
     }
     
 }
